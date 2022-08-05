@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Для быстрого просмотра таблицы
+# Для быстрого просмотра таблицы base
 import psycopg2
 conn = psycopg2.connect(
     host="localhost",

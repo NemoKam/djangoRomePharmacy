@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from msilib.schema import Error
+# parser
 import psycopg2
 from selenium import webdriver
 from bs4 import BeautifulSoup

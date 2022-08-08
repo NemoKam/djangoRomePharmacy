@@ -8,5 +8,5 @@ conn = psycopg2.connect(
     password="hduaos82g37x02",
     port=5432) 
 cursor = conn.cursor()
-cursor.execute("DROP TABLE comms_comms")
+cursor.execute("CREATE TABLE comms_commms()")
 conn.commit()

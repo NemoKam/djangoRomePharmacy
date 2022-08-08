@@ -35,8 +35,13 @@ for i in soup.findAll('div',{'class':'Nv2PK'}):
         pass
 for j in range(len(pharmacy)):
     driver.get(pharmacy[j][1])
-    time.sleep(1)
-    driver.find_element_by_css_selector('.DkEaL').click()
+    while True:
+        try:
+            driver.find_element_by_css_selector('.DkEaL').click()
+            break
+        except:
+            time.sleep(3)
+            print('No')
     time.sleep(13)
     i = 0
     ii = 1
@@ -63,7 +68,7 @@ for j in range(len(pharmacy)):
                 text = ''
             i+=1
             ii+=3
-            cursor.execute("INSERT INTO comms_comment (pharmacyurl, pharmacyname, author, sources, date, text) VALUES(%s, %s, %s, %s, %s, %s)", (pharmacy[j][1], pharmacy[j][0], name, pharmacy[j][1], date , text))
+            cursor.execute("INSERT INTO comms_test (pharmacyurl, pharmacyname, author, sources, date, text) VALUES(%s, %s, %s, %s, %s, %s)", (pharmacy[j][1], pharmacy[j][0], name, pharmacy[j][1], date , text))
             conn.commit()
     print(pharmacy[j][0])
 print('Все')

@@ -23,7 +23,12 @@ while True:
         driver.execute_script(f'document.querySelectorAll(".Nv2PK")[{how}].scrollIntoView()')
         how+=1
     except:
-        break
+        try:
+            time.sleep(10)
+            driver.execute_script(f'document.querySelectorAll(".Nv2PK")[{how}].scrollIntoView()')
+            how+=1
+        except:
+            break
 soup = BeautifulSoup(driver.page_source,'html.parser')
 for i in soup.findAll('div',{'class':'Nv2PK'}):
     try:
